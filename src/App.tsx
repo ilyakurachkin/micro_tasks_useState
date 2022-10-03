@@ -1,30 +1,32 @@
 import React, {useCallback, useState} from 'react';
-import  s from './App.module.css';
+import s from './App.module.css';
 
 function App() {
 
+    let  [a,setA]=useState(1)
 
-    let[a,setA]=useState(1)
+    const onclickHandlerPlus = () => {
+        setA(++a)
+    }
 
 
-    const onClickHandlerPlus =()=> {
-        setA(++a);
-        console.log(a)
+    const onclickHandlerNull = () => {
+        setA(0)
     }
-    const onClickHandlerMinus =()=> {
-        setA(--a);
+
+
+    const onclickHandlerMinus= () => {
+        setA(--a)
     }
-    const onClickHandlerNull =()=> {
-        setA(0);
-    }
+
 
     return (
         <>
-            <div>
-                <h1 className={s.title}>{a}</h1>
-                <button onClick={onClickHandlerPlus}>плюс</button>
-                <button onClick={onClickHandlerNull}>0</button>
-                <button onClick={onClickHandlerMinus}>минус</button>
+            <div className={s.block}>
+                <h1>{a}</h1>
+                <button onClick={onclickHandlerPlus}>плюс</button>
+                <button onClick={onclickHandlerNull}>null</button>
+                <button onClick={onclickHandlerMinus}>минус</button>
             </div>
         </>
     )
